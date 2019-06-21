@@ -8,6 +8,22 @@
  * @see craft\config\DbConfig
  */
 
+//Get the heroku postgres URL
+ $dbopts = parse_url(getenv('DATABASE_URL'));
+
+//If the postgres is set in heroku, use those connections otherwise use default
+if(!empty($dbopts['path'])) {
+     return [
+         'server' => $dbopts["host"],
+         'user' => $dbopts["user"],
+         'password' => $dbopts["pass"],
+         'database' => ltrim($dbopts["path"],'/'),
+         'schema' => getenv('DB_SCHEMA'),
+         'tablePrefix' => getenv('DB_TABLE_PREFIX'),
+         'port' => $dbopts["port"]
+     ];
+ }
+
 return [
     'driver' => getenv('DB_DRIVER'),
     'server' => getenv('DB_SERVER'),
