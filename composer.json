@@ -1,6 +1,7 @@
 {
   "require": {
     "craftcms/cms": "^3.0.0",
+    "csanquer/pdo-service-provider": "~1.1dev",
     "vlucas/phpdotenv": "^2.4.0"
   },
   "autoload": {
