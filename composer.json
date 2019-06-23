@@ -1,9 +1,10 @@
 {
   "require": {
+    "ext-gd": "*",
     "craftcms/cms": "^3.0.0",
     "csanquer/pdo-service-provider": "~1.1dev",
-    "vlucas/phpdotenv": "^2.4.0",
-    "ext-gd": "*"
+    "fortrabbit/craft-copy": "1.0.0-RC5",
+    "vlucas/phpdotenv": "^2.4.0"
   },
   "autoload": {
     "psr-4": {

@@ -1,0 +1,10 @@
+app: cciq-test
+ssh_url: cciq-test@deploy.us1.frbit.com
+ssh_path: null
+git_remote: cciq-test/master
+before:
+    code/up:
+        - 'echo  "Script example: " $(git rev-parse HEAD)'
+after:
+    code/down:
+        - 'php craft migrate/all'
