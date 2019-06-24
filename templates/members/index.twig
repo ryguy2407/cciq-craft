@@ -18,12 +18,12 @@
     {# Display the members #}
     {% for member in members %}
         <article>
-            <h1><a href="{{ member.url }}">{{ member.title }}</a></h1>
+            <h1><a href="/{{ member.url }}">{{ member.title }}</a></h1>
             {% set rel = member.profileImage.one() %}
                 {% if rel %}
                     <img src="{{ rel.url }}" width="200">
                 {% endif %}
-            <a href="{{ member.url }}">Go to members page</a>
+            <a href="/{{ member.url }}">Go to members page</a>
         </article>
 
     {% endfor %}

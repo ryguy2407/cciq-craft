@@ -1,31 +1,68 @@
-{# Get the requested entry slug from the URL #}
-{% set requestedSlug = craft.app.request.getSegment(2) %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CCIQ</title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+    <body>
+        <!-- Navigation -->
+          <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+              <a class="navbar-brand" href="#">SupportSmall.org.au</a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Past Bills</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">Campaigns</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
 
-{# Fetch the entry with that slug #}
-{% set entry = craft.entries()
-    .slug(requestedSlug|literal)
-    .one() %}
+          {# Get the requested entry slug from the URL #}
+          {% set requestedSlug = craft.app.request.getSegment(2) %}
 
+          {# Fetch the entry with that slug #}
+          {% set entry = craft.entries()
+            .slug(requestedSlug|literal)
+            .one() %}
 
-{# Display the entry #}
-<article>
-    <h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
-    {% set rel = entry.profileImage.one() %}
-    {% if rel %}
-        <img src="{{ rel.url }}" width="200">
-    {% endif %}
-</article>
+        <div style="margin-bottom:70px;"></div>
+        <div class="container">
+            {# Display the entry #}
+            <article>
+                <h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+                {% set rel = entry.profileImage.one() %}
+                {% if rel %}
+                    <img src="{{ rel.url }}" width="200">
+                {% endif %}
+            </article>
 
-{# Voting History #}
-<h2>Voting History</h2>
-<ul>
-{% for block in entry.votingHistory.all() %}
-    {% set relatedEntries = block.billTitle %}
-    {% if relatedEntries|length %}
-        {% for rel in relatedEntries %}
-            <li><a href="{{ rel.url }}">{{ rel.title }}</a></li>
-        {% endfor %}
-    {% endif %}
-    <li>Member Voted <span style="text-transform:capitalize;">{{ block.memberVoted }}</span></li>
-{% endfor %}
-</ul>
+            {# Voting History #}
+            <h2>Voting History</h2>
+            <ul>
+            {% for block in entry.votingHistory.all() %}
+                {% set relatedEntries = block.billTitle %}
+                {% if relatedEntries|length %}
+                    {% for rel in relatedEntries %}
+                        <li><a href="{{ rel.url }}">{{ rel.title }}</a></li>
+                    {% endfor %}
+                {% endif %}
+                <li>Member Voted <span style="text-transform:capitalize;">{{ block.memberVoted }}</span></li>
+            {% endfor %}
+            </ul>
+        </div>
+    </body>
+</html>
