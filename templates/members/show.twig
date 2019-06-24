@@ -1,0 +1,31 @@
+{# Get the requested entry slug from the URL #}
+{% set requestedSlug = craft.app.request.getSegment(2) %}
+
+{# Fetch the entry with that slug #}
+{% set entry = craft.entries()
+    .slug(requestedSlug|literal)
+    .one() %}
+
+
+{# Display the entry #}
+<article>
+    <h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+    {% set rel = entry.profileImage.one() %}
+    {% if rel %}
+        <img src="{{ rel.url }}" width="200">
+    {% endif %}
+</article>
+
+{# Voting History #}
+<h2>Voting History</h2>
+<ul>
+{% for block in entry.votingHistory.all() %}
+    {% set relatedEntries = block.billTitle %}
+    {% if relatedEntries|length %}
+        {% for rel in relatedEntries %}
+            <li><a href="{{ rel.url }}">{{ rel.title }}</a></li>
+        {% endfor %}
+    {% endif %}
+    <li>Member Voted <span style="text-transform:capitalize;">{{ block.memberVoted }}</span></li>
+{% endfor %}
+</ul>

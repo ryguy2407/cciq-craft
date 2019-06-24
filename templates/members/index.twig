@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CCIQ</title>
+</head>
+<body>
+    {# Create an entry query with the 'section' and 'limit' parameters #}
+    {% set myMembersQuery = craft.entries()
+        .section('members')
+        .limit(10) %}
+
+    {# Fetch the members #}
+    {% set members = myMembersQuery.all() %}
+
+    {# Display the members #}
+    {% for member in members %}
+        <article>
+            <h1><a href="{{ member.url }}">{{ member.title }}</a></h1>
+            {% set rel = member.profileImage.one() %}
+                {% if rel %}
+                    <img src="{{ rel.url }}" width="200">
+                {% endif %}
+            <a href="{{ member.url }}">Go to members page</a>
+        </article>
+
+    {% endfor %}
+</body>
+</html>
