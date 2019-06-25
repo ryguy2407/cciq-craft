@@ -430,16 +430,16 @@
         },
         {
             "name": "craftcms/cms",
-            "version": "3.1.31",
+            "version": "3.1.32.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/craftcms/cms.git",
-                "reference": "2c2447caaed72c1edb443cfbea4d7cbc64e41675"
+                "reference": "111ac9fd28ce0995d1978e314ee4de91b96e7786"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/craftcms/cms/zipball/2c2447caaed72c1edb443cfbea4d7cbc64e41675",
-                "reference": "2c2447caaed72c1edb443cfbea4d7cbc64e41675",
+                "url": "https://api.github.com/repos/craftcms/cms/zipball/111ac9fd28ce0995d1978e314ee4de91b96e7786",
+                "reference": "111ac9fd28ce0995d1978e314ee4de91b96e7786",
                 "shasum": ""
             },
             "require": {
@@ -514,7 +514,7 @@
                 "craftcms",
                 "yii2"
             ],
-            "time": "2019-06-18T18:46:14+00:00"
+            "time": "2019-06-25T21:24:57+00:00"
         },
         {
             "name": "craftcms/oauth2-craftid",
@@ -851,16 +851,16 @@
         },
         {
             "name": "egulias/email-validator",
-            "version": "2.1.8",
+            "version": "2.1.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egulias/EmailValidator.git",
-                "reference": "c26463ff9241f27907112fbcd0c86fa670cfef98"
+                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/c26463ff9241f27907112fbcd0c86fa670cfef98",
-                "reference": "c26463ff9241f27907112fbcd0c86fa670cfef98",
+                "url": "https://api.github.com/repos/egulias/EmailValidator/zipball/128cc721d771ec2c46ce59698f4ca42b73f71b25",
+                "reference": "128cc721d771ec2c46ce59698f4ca42b73f71b25",
                 "shasum": ""
             },
             "require": {
@@ -904,7 +904,7 @@
                 "validation",
                 "validator"
             ],
-            "time": "2019-05-16T22:02:54+00:00"
+            "time": "2019-06-23T10:14:27+00:00"
         },
         {
             "name": "elvanto/litemoji",
