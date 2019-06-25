@@ -56,7 +56,7 @@
             {% for block in entry.votingHistory.all() %}
                 {% set relatedEntries = block.billTitle %}
                 {% if relatedEntries|length %}
-                    {% for rel in relatedEntries %}
+                    {% for rel in relatedEntries.all %}
                         <li><a href="{{ rel.url }}">{{ rel.title }}</a></li>
                     {% endfor %}
                 {% endif %}
