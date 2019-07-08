@@ -1,9 +1,11 @@
 {
   "require": {
     "ext-gd": "*",
-    "craftcms/cms": "^3.0.0",
+    "craftcms/cms": "3.1.33",
+    "craftconditions/conditions": "1.0.3",
     "csanquer/pdo-service-provider": "~1.1dev",
     "fortrabbit/craft-copy": "1.0.0-RC5",
+    "verbb/cp-nav": "2.0.9",
     "vlucas/phpdotenv": "^2.4.0"
   },
   "autoload": {

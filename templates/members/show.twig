@@ -52,17 +52,7 @@
 
             {# Voting History #}
             <h2>Voting History</h2>
-            <ul>
-            {% for block in entry.votingHistory.all() %}
-                {% set relatedEntries = block.billTitle %}
-                {% if relatedEntries|length %}
-                    {% for rel in relatedEntries.all %}
-                        <li><a href="{{ rel.url }}">{{ rel.title }}</a></li>
-                    {% endfor %}
-                {% endif %}
-                <li>Member Voted <span style="text-transform:capitalize;">{{ block.memberVoted }}</span></li>
-            {% endfor %}
-            </ul>
+            
         </div>
     </body>
 </html>
